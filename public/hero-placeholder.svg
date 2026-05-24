@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <radialGradient id="globe" cx="72%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.18"/>
+      <stop offset="35%" stop-color="#8b6914" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#07070a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="72%" cy="50%" r="28%">
+      <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#07070a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="#07070a"/>
+  <!-- Ambient globe glow -->
+  <ellipse cx="1320" cy="540" rx="480" ry="480" fill="url(#globe)"/>
+  <ellipse cx="1320" cy="540" rx="280" ry="280" fill="url(#glow)"/>
+  <!-- Globe outline rings -->
+  <circle cx="1320" cy="540" r="320" fill="none" stroke="#c9a84c" stroke-opacity="0.12" stroke-width="1"/>
+  <circle cx="1320" cy="540" r="260" fill="none" stroke="#c9a84c" stroke-opacity="0.08" stroke-width="1"/>
+  <circle cx="1320" cy="540" r="180" fill="none" stroke="#c9a84c" stroke-opacity="0.06" stroke-width="1"/>
+  <!-- Globe grid lines (horizontal) -->
+  <ellipse cx="1320" cy="540" rx="320" ry="100" fill="none" stroke="#c9a84c" stroke-opacity="0.06" stroke-width="1"/>
+  <ellipse cx="1320" cy="540" rx="320" ry="200" fill="none" stroke="#c9a84c" stroke-opacity="0.05" stroke-width="1"/>
+  <ellipse cx="1320" cy="540" rx="280" ry="50" fill="none" stroke="#c9a84c" stroke-opacity="0.05" stroke-width="1"/>
+  <!-- Globe grid lines (vertical) -->
+  <ellipse cx="1320" cy="540" rx="100" ry="320" fill="none" stroke="#c9a84c" stroke-opacity="0.05" stroke-width="1"/>
+  <ellipse cx="1320" cy="540" rx="200" ry="320" fill="none" stroke="#c9a84c" stroke-opacity="0.04" stroke-width="1"/>
+  <!-- Connection dots (network nodes) -->
+  <circle cx="1180" cy="420" r="3" fill="#c9a84c" fill-opacity="0.6"/>
+  <circle cx="1380" cy="380" r="2" fill="#c9a84c" fill-opacity="0.5"/>
+  <circle cx="1460" cy="510" r="3.5" fill="#c9a84c" fill-opacity="0.7"/>
+  <circle cx="1280" cy="620" r="2" fill="#c9a84c" fill-opacity="0.4"/>
+  <circle cx="1390" cy="660" r="2.5" fill="#c9a84c" fill-opacity="0.5"/>
+  <circle cx="1200" cy="570" r="2" fill="#c9a84c" fill-opacity="0.4"/>
+  <circle cx="1320" cy="460" r="2" fill="#c9a84c" fill-opacity="0.4"/>
+  <!-- Connection lines -->
+  <line x1="1180" y1="420" x2="1380" y2="380" stroke="#c9a84c" stroke-opacity="0.15" stroke-width="1"/>
+  <line x1="1380" y1="380" x2="1460" y2="510" stroke="#c9a84c" stroke-opacity="0.12" stroke-width="1"/>
+  <line x1="1460" y1="510" x2="1390" y2="660" stroke="#c9a84c" stroke-opacity="0.10" stroke-width="1"/>
+  <line x1="1180" y1="420" x2="1200" y2="570" stroke="#c9a84c" stroke-opacity="0.10" stroke-width="1"/>
+  <line x1="1200" y1="570" x2="1280" y2="620" stroke="#c9a84c" stroke-opacity="0.12" stroke-width="1"/>
+  <!-- Surface highlight text (watermark) -->
+  <text x="1320" y="1050" text-anchor="middle" fill="#c9a84c" fill-opacity="0.08" font-size="11" font-family="sans-serif">
+    Agrega tu imagen en public/hero.jpg para reemplazar este fondo
+  </text>
+</svg>

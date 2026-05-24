@@ -1,0 +1,294 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <!-- Background -->
+    <radialGradient id="bgMain" cx="70%" cy="42%" r="65%">
+      <stop offset="0%" stop-color="#14110e"/>
+      <stop offset="45%" stop-color="#0c0b0d"/>
+      <stop offset="100%" stop-color="#060508"/>
+    </radialGradient>
+    <!-- Globe sphere (3D shading) -->
+    <radialGradient id="sphereGrad" cx="36%" cy="30%" r="72%" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#1e2238"/>
+      <stop offset="35%" stop-color="#0e1022"/>
+      <stop offset="70%" stop-color="#080910"/>
+      <stop offset="100%" stop-color="#05050a"/>
+    </radialGradient>
+    <!-- Globe edge glow -->
+    <radialGradient id="rimGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="56%" stop-color="#00000000"/>
+      <stop offset="72%" stop-color="#7a501008"/>
+      <stop offset="83%" stop-color="#c9a84c2e"/>
+      <stop offset="92%" stop-color="#e2b8576b"/>
+      <stop offset="97%" stop-color="#f5d4689e"/>
+      <stop offset="100%" stop-color="#ffe0802e"/>
+    </radialGradient>
+    <!-- Atmospheric glow -->
+    <radialGradient id="atmoGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c9a84c33"/>
+      <stop offset="55%" stop-color="#8b602012"/>
+      <stop offset="100%" stop-color="#00000000"/>
+    </radialGradient>
+    <!-- Desk surface -->
+    <linearGradient id="deskGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e1a11"/>
+      <stop offset="28%" stop-color="#141209"/>
+      <stop offset="100%" stop-color="#050403"/>
+    </linearGradient>
+    <!-- Mug body -->
+    <linearGradient id="mugBody" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0f0f0f"/>
+      <stop offset="12%" stop-color="#282828"/>
+      <stop offset="48%" stop-color="#202020"/>
+      <stop offset="80%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#0d0d0d"/>
+    </linearGradient>
+    <!-- Coffee -->
+    <radialGradient id="coffee" cx="35%" cy="32%" r="68%">
+      <stop offset="0%" stop-color="#4e3118"/>
+      <stop offset="55%" stop-color="#2d1a09"/>
+      <stop offset="100%" stop-color="#190e04"/>
+    </radialGradient>
+    <!-- Left darkness vignette -->
+    <linearGradient id="leftDark" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#07070a" stop-opacity="1"/>
+      <stop offset="22%"  stop-color="#07070a" stop-opacity="0.98"/>
+      <stop offset="38%"  stop-color="#07070a" stop-opacity="0.62"/>
+      <stop offset="46%"  stop-color="#07070a" stop-opacity="0.04"/>
+      <stop offset="54%"  stop-color="#07070a" stop-opacity="0"/>
+    </linearGradient>
+    <!-- Bottom fade -->
+    <linearGradient id="bottomFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="#07070a"/>
+    </linearGradient>
+    <!-- Filters -->
+    <filter id="bigBlur" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="70"/>
+    </filter>
+    <filter id="medBlur" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="30"/>
+    </filter>
+    <filter id="dotGlow" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur stdDeviation="2.8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="logoGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="globeClip">
+      <circle cx="1350" cy="445" r="415"/>
+    </clipPath>
+  </defs>
+
+  <!-- ══ BACKGROUND ══ -->
+  <rect width="1920" height="1080" fill="url(#bgMain)"/>
+
+  <!-- ══ GLOBE ATMOSPHERIC HALO ══ -->
+  <ellipse cx="1350" cy="445" rx="730" ry="710" fill="#c9a84c" fill-opacity="0.032" filter="url(#bigBlur)"/>
+  <ellipse cx="1350" cy="445" rx="535" ry="520" fill="#c9a84c" fill-opacity="0.078" filter="url(#medBlur)"/>
+  <ellipse cx="1350" cy="445" rx="455" ry="442" fill="url(#atmoGlow)" filter="url(#medBlur)"/>
+
+  <!-- ══ GLOBE SPHERE ══ -->
+  <circle cx="1350" cy="445" r="415" fill="url(#sphereGrad)"/>
+
+  <!-- ══ GLOBE GRID ══ -->
+  <g clip-path="url(#globeClip)">
+    <!-- Latitude ellipses -->
+    <ellipse cx="1350" cy="445" rx="415" ry="355" fill="none" stroke="#c9a84c" stroke-width="0.55" stroke-opacity="0.10"/>
+    <ellipse cx="1350" cy="445" rx="415" ry="262" fill="none" stroke="#c9a84c" stroke-width="0.55" stroke-opacity="0.11"/>
+    <ellipse cx="1350" cy="445" rx="415" ry="158" fill="none" stroke="#c9a84c" stroke-width="0.50" stroke-opacity="0.12"/>
+    <ellipse cx="1350" cy="445" rx="415" ry="56"  fill="none" stroke="#c9a84c" stroke-width="0.55" stroke-opacity="0.10"/>
+    <!-- Longitude ellipses -->
+    <ellipse cx="1350" cy="445" rx="56"  ry="415" fill="none" stroke="#c9a84c" stroke-width="0.48" stroke-opacity="0.09"/>
+    <ellipse cx="1350" cy="445" rx="158" ry="415" fill="none" stroke="#c9a84c" stroke-width="0.50" stroke-opacity="0.10"/>
+    <ellipse cx="1350" cy="445" rx="262" ry="415" fill="none" stroke="#c9a84c" stroke-width="0.55" stroke-opacity="0.11"/>
+    <ellipse cx="1350" cy="445" rx="355" ry="415" fill="none" stroke="#c9a84c" stroke-width="0.50" stroke-opacity="0.09"/>
+  </g>
+
+  <!-- ══ CITY LIGHTS ══ -->
+  <g clip-path="url(#globeClip)">
+    <!-- W.Europe -->
+    <circle cx="1216" cy="298" r="3.3" fill="#fce888" filter="url(#dotGlow)"/>
+    <circle cx="1233" cy="291" r="2.5" fill="#fce888" fill-opacity="0.88"/>
+    <circle cx="1248" cy="286" r="3.1" fill="#fee898" filter="url(#dotGlow)"/>
+    <circle cx="1224" cy="307" r="2.1" fill="#fce888" fill-opacity="0.80"/>
+    <circle cx="1205" cy="304" r="2.3" fill="#f0c860" fill-opacity="0.72"/>
+    <circle cx="1261" cy="300" r="2.6" fill="#fce888" fill-opacity="0.85"/>
+    <circle cx="1244" cy="312" r="1.9" fill="#f0c860" fill-opacity="0.65"/>
+    <circle cx="1274" cy="293" r="2.1" fill="#fce888" fill-opacity="0.78"/>
+    <!-- UK/Scandinavia -->
+    <circle cx="1183" cy="278" r="2.3" fill="#fce888" fill-opacity="0.72"/>
+    <circle cx="1207" cy="266" r="2.1" fill="#fce888" fill-opacity="0.62"/>
+    <circle cx="1219" cy="276" r="1.7" fill="#f0c860" fill-opacity="0.55"/>
+    <!-- E.Europe -->
+    <circle cx="1289" cy="293" r="2.5" fill="#fce888" fill-opacity="0.80"/>
+    <circle cx="1300" cy="283" r="1.9" fill="#f0c860" fill-opacity="0.68"/>
+    <!-- Japan/Korea -->
+    <circle cx="1524" cy="300" r="3.6" fill="#fce888" filter="url(#dotGlow)"/>
+    <circle cx="1539" cy="292" r="2.9" fill="#fee898" fill-opacity="0.92"/>
+    <circle cx="1533" cy="311" r="2.3" fill="#fce888" fill-opacity="0.88"/>
+    <circle cx="1511" cy="288" r="2.5" fill="#f0c860" fill-opacity="0.82"/>
+    <circle cx="1547" cy="305" r="1.9" fill="#fce888" fill-opacity="0.72"/>
+    <!-- E.China -->
+    <circle cx="1490" cy="327" r="3.1" fill="#fce888" filter="url(#dotGlow)"/>
+    <circle cx="1474" cy="315" r="2.3" fill="#fce888" fill-opacity="0.82"/>
+    <circle cx="1505" cy="341" r="2.6" fill="#f0c860" fill-opacity="0.78"/>
+    <circle cx="1467" cy="337" r="2.1" fill="#fce888" fill-opacity="0.72"/>
+    <!-- India -->
+    <circle cx="1398" cy="386" r="2.9" fill="#fce888" fill-opacity="0.82"/>
+    <circle cx="1413" cy="398" r="2.1" fill="#f0c860" fill-opacity="0.72"/>
+    <circle cx="1385" cy="400" r="2.3" fill="#fce888" fill-opacity="0.75"/>
+    <!-- SE Asia -->
+    <circle cx="1505" cy="400" r="2.7" fill="#fce888" fill-opacity="0.80"/>
+    <circle cx="1521" cy="392" r="1.9" fill="#f0c860" fill-opacity="0.68"/>
+    <circle cx="1493" cy="414" r="2.1" fill="#fce888" fill-opacity="0.72"/>
+    <!-- Middle East -->
+    <circle cx="1318" cy="342" r="2.5" fill="#fce888" fill-opacity="0.78"/>
+    <circle cx="1337" cy="331" r="1.9" fill="#f0c860" fill-opacity="0.65"/>
+    <!-- N.America NE -->
+    <circle cx="1026" cy="306" r="3.3" fill="#fce888" filter="url(#dotGlow)"/>
+    <circle cx="1012" cy="296" r="2.5" fill="#fce888" fill-opacity="0.88"/>
+    <circle cx="1042" cy="318" r="2.3" fill="#f0c860" fill-opacity="0.82"/>
+    <circle cx="1002" cy="313" r="2.1" fill="#fce888" fill-opacity="0.72"/>
+    <!-- N.America W -->
+    <circle cx="968"  cy="320" r="2.9" fill="#fce888" fill-opacity="0.82"/>
+    <circle cx="980"  cy="306" r="2.3" fill="#f0c860" fill-opacity="0.72"/>
+    <circle cx="957"  cy="332" r="1.9" fill="#fce888" fill-opacity="0.65"/>
+    <!-- Mexico -->
+    <circle cx="989"  cy="376" r="2.3" fill="#fce888" fill-opacity="0.68"/>
+    <!-- S.America -->
+    <circle cx="1068" cy="508" r="2.9" fill="#fce888" fill-opacity="0.76"/>
+    <circle cx="1083" cy="526" r="2.1" fill="#f0c860" fill-opacity="0.66"/>
+    <circle cx="1055" cy="520" r="2.3" fill="#fce888" fill-opacity="0.62"/>
+    <!-- Africa N -->
+    <circle cx="1183" cy="386" r="2.3" fill="#fce888" fill-opacity="0.68"/>
+    <circle cx="1198" cy="373" r="1.9" fill="#f0c860" fill-opacity="0.60"/>
+    <!-- Africa S -->
+    <circle cx="1203" cy="496" r="2.5" fill="#fce888" fill-opacity="0.72"/>
+    <!-- Australia -->
+    <circle cx="1544" cy="514" r="3.1" fill="#fce888" fill-opacity="0.80"/>
+    <circle cx="1561" cy="504" r="2.3" fill="#f0c860" fill-opacity="0.70"/>
+    <circle cx="1529" cy="526" r="2.1" fill="#fce888" fill-opacity="0.65"/>
+
+    <!-- Trade routes -->
+    <line x1="1233" y1="291" x2="1524" y2="300" stroke="#c9a84c" stroke-opacity="0.14" stroke-width="0.9"/>
+    <line x1="1233" y1="291" x2="1026" y2="306" stroke="#c9a84c" stroke-opacity="0.14" stroke-width="0.9"/>
+    <line x1="980"  y1="306" x2="1524" y2="300" stroke="#c9a84c" stroke-opacity="0.09" stroke-width="0.8"/>
+    <line x1="1524" y1="300" x2="1490" y2="327" stroke="#c9a84c" stroke-opacity="0.12" stroke-width="0.8"/>
+    <line x1="1490" y1="327" x2="1505" y2="400" stroke="#c9a84c" stroke-opacity="0.11" stroke-width="0.8"/>
+    <line x1="1505" y1="400" x2="1544" y2="514" stroke="#c9a84c" stroke-opacity="0.10" stroke-width="0.8"/>
+    <line x1="1233" y1="291" x2="1318" y2="342" stroke="#c9a84c" stroke-opacity="0.12" stroke-width="0.8"/>
+    <line x1="1318" y1="342" x2="1398" y2="386" stroke="#c9a84c" stroke-opacity="0.12" stroke-width="0.8"/>
+    <line x1="1398" y1="386" x2="1505" y2="400" stroke="#c9a84c" stroke-opacity="0.11" stroke-width="0.8"/>
+    <line x1="1026" y1="306" x2="989"  y2="376" stroke="#c9a84c" stroke-opacity="0.10" stroke-width="0.7"/>
+    <line x1="989"  y1="376" x2="1068" y2="508" stroke="#c9a84c" stroke-opacity="0.10" stroke-width="0.7"/>
+    <line x1="1068" y1="508" x2="1203" y2="496" stroke="#c9a84c" stroke-opacity="0.09" stroke-width="0.7"/>
+    <line x1="1183" y1="386" x2="1203" y2="496" stroke="#c9a84c" stroke-opacity="0.09" stroke-width="0.7"/>
+    <line x1="1233" y1="291" x2="1183" y2="386" stroke="#c9a84c" stroke-opacity="0.10" stroke-width="0.7"/>
+    <line x1="1289" y1="293" x2="1318" y2="342" stroke="#c9a84c" stroke-opacity="0.10" stroke-width="0.7"/>
+    <line x1="1398" y1="386" x2="1337" y2="331" stroke="#c9a84c" stroke-opacity="0.09" stroke-width="0.6"/>
+  </g>
+
+  <!-- Globe rim glow overlay -->
+  <circle cx="1350" cy="445" r="415" fill="url(#rimGlow)"/>
+  <circle cx="1350" cy="445" r="415" fill="none" stroke="#c9a84c" stroke-width="1.2" stroke-opacity="0.22"/>
+  <circle cx="1350" cy="445" r="420" fill="none" stroke="#e2b857" stroke-width="3.5" stroke-opacity="0.08"/>
+
+  <!-- ══ DESK SURFACE ══ -->
+  <rect x="0" y="838" width="1920" height="242" fill="url(#deskGrad)"/>
+  <line x1="0" y1="838" x2="1920" y2="838" stroke="#c9a84c" stroke-opacity="0.035" stroke-width="1.5"/>
+  <rect x="0" y="838" width="1920" height="4" fill="#2a2010" fill-opacity="0.14"/>
+
+  <!-- ══ MUG SHADOW ══ -->
+  <ellipse cx="1100" cy="852" rx="134" ry="22" fill="#000" fill-opacity="0.80"/>
+
+  <!-- ══ MUG BODY ══ -->
+  <rect x="982" y="550" width="236" height="288" fill="url(#mugBody)" rx="3"/>
+
+  <!-- Mug bottom -->
+  <ellipse cx="1100" cy="838" rx="118" ry="27" fill="#0d0d0d"/>
+  <ellipse cx="1100" cy="838" rx="114" ry="25" fill="#111"/>
+  <!-- Mug top rim -->
+  <ellipse cx="1100" cy="550" rx="118" ry="27" fill="#1a1a1a"/>
+  <ellipse cx="1100" cy="550" rx="113" ry="25" fill="#1f1f1f"/>
+  <!-- Coffee surface -->
+  <ellipse cx="1100" cy="554" rx="105" ry="22" fill="url(#coffee)"/>
+  <ellipse cx="1083" cy="550" rx="35" ry="9"  fill="#6b3e20" fill-opacity="0.28"/>
+  <ellipse cx="1073" cy="548" rx="19" ry="5"  fill="#9a5530" fill-opacity="0.18"/>
+
+  <!-- ══ MUG HANDLE ══ -->
+  <path d="M 1218 616 Q 1306 616 1306 698 Q 1306 780 1218 780"
+        fill="none" stroke="#151515" stroke-width="34" stroke-linecap="round"/>
+  <path d="M 1218 616 Q 1298 616 1298 698 Q 1298 780 1218 780"
+        fill="none" stroke="#0d0d0d" stroke-width="20" stroke-linecap="round"/>
+  <path d="M 1218 621 Q 1290 621 1290 698 Q 1290 775 1218 775"
+        fill="none" stroke="#202020" stroke-width="5" stroke-linecap="round" stroke-opacity="0.42"/>
+
+  <!-- ══ MUG LOGO ══ -->
+  <g filter="url(#logoGlow)">
+    <!-- Decorative outer rings -->
+    <circle cx="1100" cy="676" r="62" fill="none" stroke="#c9a84c" stroke-width="0.9" stroke-opacity="0.38"/>
+    <circle cx="1100" cy="676" r="53" fill="none" stroke="#c9a84c" stroke-width="0.5" stroke-opacity="0.20"/>
+
+    <!-- Crescent moon (even-odd: outer circle minus offset inner circle) -->
+    <!-- Outer circle: center (954,676) r=42 — top=(954,634) bottom=(954,718) -->
+    <!-- Inner circle: center (972,676) r=36 — top=(972,640) bottom=(972,712) -->
+    <path fill-rule="evenodd"
+          d="M 1094 634 A 42 42 0 1 1 1094 718 A 42 42 0 1 1 1094 634 Z
+             M 1112 640 A 36 36 0 1 1 1112 712 A 36 36 0 1 1 1112 640 Z"
+          fill="#c9a84c" fill-opacity="0.88"/>
+
+    <!-- Sun center circle -->
+    <circle cx="1100" cy="676" r="9" fill="#c9a84c" fill-opacity="0.92"/>
+    <!-- Sun rays -->
+    <g stroke="#c9a84c" stroke-width="1.6" stroke-opacity="0.68" stroke-linecap="round">
+      <line x1="1100" y1="661" x2="1100" y2="655"/>
+      <line x1="1100" y1="691" x2="1100" y2="697"/>
+      <line x1="1085" y1="676" x2="1079" y2="676"/>
+      <line x1="1115" y1="676" x2="1121" y2="676"/>
+      <line x1="1089.4" y1="665.4" x2="1085.2" y2="661.2"/>
+      <line x1="1110.6" y1="686.6" x2="1114.8" y2="690.8"/>
+      <line x1="1110.6" y1="665.4" x2="1114.8" y2="661.2"/>
+      <line x1="1089.4" y1="686.6" x2="1085.2" y2="690.8"/>
+    </g>
+  </g>
+
+  <!-- FOCUS text -->
+  <text x="1100" y="750" text-anchor="middle"
+        fill="#c9a84c" fill-opacity="0.90"
+        font-size="16" font-family="Georgia, 'Times New Roman', serif"
+        letter-spacing="6">FOCUS</text>
+  <!-- COMEX text -->
+  <text x="1100" y="767" text-anchor="middle"
+        fill="#c9a84c" fill-opacity="0.58"
+        font-size="9.5" font-family="Georgia, 'Times New Roman', serif"
+        letter-spacing="8.5">C O M E X</text>
+
+  <!-- Mug edge highlights -->
+  <rect x="982" y="560" width="10" height="268" fill="#262626" fill-opacity="0.42" rx="3"/>
+  <rect x="1208" y="560" width="10" height="268" fill="#040404" fill-opacity="0.52" rx="2"/>
+  <!-- Warm globe reflection on right mug face -->
+  <rect x="1184" y="568" width="36" height="250" fill="#c9a84c" fill-opacity="0.014" rx="2"/>
+
+  <!-- ══ PEN ON DESK ══ -->
+  <g transform="rotate(-5 780 868)">
+    <rect x="617" y="861" width="338" height="9" rx="4.5" fill="#1a1a1a"/>
+    <rect x="618" y="862" width="334" height="7" rx="3.5" fill="#222"/>
+    <rect x="693" y="861" width="80" height="9" rx="4.5" fill="#181818"/>
+    <rect x="757" y="859" width="116" height="2.5" rx="1.2" fill="#2c2c2c"/>
+    <polygon points="617,861 617,870 601,865" fill="#252525"/>
+    <polygon points="619,862 619,869 606,865" fill="#2e2e2e"/>
+    <rect x="951" y="860" width="4" height="10" rx="2" fill="#2a2a2a"/>
+    <rect x="618" y="862" width="334" height="2" rx="1" fill="#2d2d2d" fill-opacity="0.55"/>
+  </g>
+
+  <!-- ══ LEFT DARKNESS OVERLAY ══ -->
+  <rect width="1920" height="1080" fill="url(#leftDark)"/>
+
+  <!-- ══ BOTTOM FADE ══ -->
+  <rect x="0" y="888" width="1920" height="192" fill="url(#bottomFade)"/>
+
+  <!-- ══ TOP VIGNETTE ══ -->
+  <rect x="0" y="0" width="1920" height="115" fill="#07070a" fill-opacity="0.42"/>
+</svg>

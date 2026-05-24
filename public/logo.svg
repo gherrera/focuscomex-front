@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 164" width="440" height="164">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#f0d878"/>
+      <stop offset="35%"  stop-color="#c9a84c"/>
+      <stop offset="100%" stop-color="#9a7020"/>
+    </linearGradient>
+    <linearGradient id="goldText" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#f0d878"/>
+      <stop offset="50%"  stop-color="#c9a84c"/>
+      <stop offset="100%" stop-color="#a07828"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="2.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Clip globe to circle so it doesn't bleed outside -->
+    <clipPath id="globeClip">
+      <circle cx="92" cy="82" r="50"/>
+    </clipPath>
+  </defs>
+
+  <!-- ══════════════════════════════════════════
+       ISOTIPO
+  ═════════════════════════════════════════════ -->
+
+  <!-- Globe wireframe — drawn behind crescent -->
+  <g clip-path="url(#globeClip)" opacity="0.92">
+    <circle cx="92" cy="82" r="50" fill="none" stroke="url(#goldGrad)" stroke-width="1.2"/>
+    <!-- Equator -->
+    <ellipse cx="92" cy="82" rx="50" ry="16"  fill="none" stroke="url(#goldGrad)" stroke-width="1.0"/>
+    <!-- Upper lat -->
+    <ellipse cx="92" cy="60" rx="42" ry="11"  fill="none" stroke="url(#goldGrad)" stroke-width="0.8"/>
+    <!-- Lower lat -->
+    <ellipse cx="92" cy="104" rx="42" ry="11" fill="none" stroke="url(#goldGrad)" stroke-width="0.8"/>
+    <!-- Central meridian -->
+    <ellipse cx="92" cy="82" rx="20" ry="50"  fill="none" stroke="url(#goldGrad)" stroke-width="0.9"/>
+    <!-- Right meridian -->
+    <ellipse cx="92" cy="82" rx="40" ry="50"  fill="none" stroke="url(#goldGrad)" stroke-width="0.7"/>
+  </g>
+
+  <!-- Crescent moon (opens right, solid body on left)
+       Outer circle: cx=76  cy=82  r=55  → top=(76,27)  bottom=(76,137)
+       Inner cutout: cx=100 cy=82  r=47  → top=(100,35) bottom=(100,129)  -->
+  <path fill-rule="evenodd"
+        d="M 76 27  A 55 55 0 1 1 76 137 A 55 55 0 1 1 76  27 Z
+           M 100 35 A 47 47 0 1 1 100 129 A 47 47 0 1 1 100 35 Z"
+        fill="url(#goldGrad)"/>
+
+  <!-- 8-pointed dramatic star — centered in crescent body (~x=55, y=82) -->
+  <!-- Points: long axes (N/S/E/W) r=20, short diagonals r=12, inner pinch r=3 -->
+  <g transform="translate(57, 82)" filter="url(#glow)">
+    <polygon
+      points="0,-20 1.1,-2.8 7.8,-7.8 2.8,-1.1 20,0 2.8,1.1 7.8,7.8 1.1,2.8
+              0,20 -1.1,2.8 -7.8,7.8 -2.8,1.1 -20,0 -2.8,-1.1 -7.8,-7.8 -1.1,-2.8"
+      fill="url(#goldGrad)"/>
+    <!-- Bright center dot -->
+    <circle cx="0" cy="0" r="4.5" fill="#f5e090"/>
+  </g>
+
+  <!-- Small 4-pointed sparkle — top-right of globe -->
+  <g transform="translate(130, 38)" fill="url(#goldGrad)">
+    <!-- thin 4-pointed star: long vertical axis, short horizontal -->
+    <polygon points="0,-9 1.4,-1.4 9,0 1.4,1.4 0,9 -1.4,1.4 -9,0 -1.4,-1.4"/>
+  </g>
+
+  <!-- ══════════════════════════════════════════
+       VERTICAL SEPARATOR
+  ═════════════════════════════════════════════ -->
+  <line x1="158" y1="36" x2="158" y2="130"
+        stroke="url(#goldGrad)" stroke-width="0.85" stroke-opacity="0.50"/>
+
+  <!-- ══════════════════════════════════════════
+       LOGOTIPO
+  ═════════════════════════════════════════════ -->
+
+  <!-- FOCUS — large serif caps -->
+  <text x="180" y="96"
+        font-family="'Trajan Pro', 'Optima', 'Palatino Linotype', Georgia, serif"
+        font-size="50"
+        font-weight="bold"
+        letter-spacing="7"
+        fill="url(#goldText)">FOCUS</text>
+
+  <!-- Decorative thin rule -->
+  <line x1="180" y1="105" x2="428" y2="105"
+        stroke="url(#goldGrad)" stroke-width="0.6" stroke-opacity="0.45"/>
+
+  <!-- Diamond ornament — sitting ON the separator line -->
+  <polygon points="275,101 279.5,105 275,109 270.5,105"
+           fill="url(#goldGrad)" fill-opacity="0.82"/>
+
+  <!-- COMEX — small spaced caps -->
+  <text x="196" y="134"
+        font-family="'Trajan Pro', 'Optima', 'Palatino Linotype', Georgia, serif"
+        font-size="16.5"
+        font-weight="normal"
+        letter-spacing="14"
+        fill="url(#goldText)"
+        fill-opacity="0.88">COMEX</text>
+
+</svg>
