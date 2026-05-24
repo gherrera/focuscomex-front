@@ -253,7 +253,7 @@ export default function Home() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24">
+      <section>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-white/5 p-10 sm:p-16 flex flex-col sm:flex-row items-center justify-between gap-8">
             <div>
