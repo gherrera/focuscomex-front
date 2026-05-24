@@ -68,7 +68,7 @@ const stats = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-dark">
+    <div className="min-h-screen">
       {/* ── HERO ── */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
 
@@ -88,9 +88,6 @@ export default function Home() {
         {/* Dark overlay from left (solid) → right (transparent) so text is readable
             and the photo shines through on the right half */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#07070a] from-[30%] via-[#07070a]/30 via-[50%] to-transparent" />
-
-        {/* Soft top + bottom vignette to blend with the page */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#07070a]/70 via-transparent to-[#07070a]" />
 
         {/* Subtle amber glow behind the globe area */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_72%_52%,rgba(201,168,76,0.07),transparent)]" />
@@ -132,7 +129,7 @@ export default function Home() {
       </section>
 
       {/* ── FEATURES ── */}
-      <section id="features" className="py-14 bg-dark-100">
+      <section id="features" className="py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
@@ -233,7 +230,7 @@ export default function Home() {
       </section>
 
       {/* ── STATS ── */}
-      <section id="stats" className="py-24 bg-dark-100">
+      <section id="stats" className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">
@@ -258,7 +255,7 @@ export default function Home() {
       {/* ── CTA ── */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-dark-200 rounded-2xl border border-white/5 p-10 sm:p-16 flex flex-col sm:flex-row items-center justify-between gap-8">
+          <div className="rounded-2xl border border-white/5 p-10 sm:p-16 flex flex-col sm:flex-row items-center justify-between gap-8">
             <div>
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">
                 ¿Listo para optimizar<br />

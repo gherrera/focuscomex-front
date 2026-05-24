@@ -24,7 +24,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center flex-shrink-0">
-            <img src="/logo.png" alt="Focus Comex" className="h-14 w-auto" />
+            <img src="/logo.png" alt="Focus Comex" className="h-16 w-auto" />
           </Link>
 
           {/* Desktop links */}
