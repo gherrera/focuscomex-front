@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect, useCallback } from 'react'
 import { jwtDecode } from 'jwt-decode'
+import UserService from '../services/UserService'
 
 const AuthContext = createContext(null)
 
@@ -9,6 +10,12 @@ const REFRESH_KEY = 'fc_refresh_token'
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
+
+  const clearSession = useCallback(() => {
+    localStorage.removeItem(TOKEN_KEY)
+    localStorage.removeItem(REFRESH_KEY)
+    setUser(null)
+  }, [])
 
   const parseToken = useCallback((token) => {
     try {
@@ -20,32 +27,58 @@ export function AuthProvider({ children }) {
     }
   }, [])
 
+  const loadUser = useCallback(async () => {
+    const u = await UserService.getUser()
+    setUser(u)
+    return u
+  }, [])
+
   useEffect(() => {
-    const token = localStorage.getItem(TOKEN_KEY)
-    if (token) {
-      const decoded = parseToken(token)
-      if (decoded) {
-        setUser(decoded)
-      } else {
-        localStorage.removeItem(TOKEN_KEY)
-        localStorage.removeItem(REFRESH_KEY)
+    const initAuth = async () => {
+      try {
+        const token = localStorage.getItem(TOKEN_KEY)
+        if (!token) return
+
+        const decoded = parseToken(token)
+        if (!decoded) {
+          clearSession()
+          return
+        }
+
+        await loadUser()
+      } catch {
+        clearSession()
+      } finally {
+        setLoading(false)
       }
     }
-    setLoading(false)
-  }, [parseToken])
 
-  const login = useCallback((accessToken, refreshToken) => {
+    initAuth()
+  }, [clearSession, loadUser, parseToken])
+
+  const login = useCallback(async (accessToken, refreshToken) => {
     localStorage.setItem(TOKEN_KEY, accessToken)
     if (refreshToken) localStorage.setItem(REFRESH_KEY, refreshToken)
-    const decoded = jwtDecode(accessToken)
-    setUser(decoded)
-  }, [])
+    const decoded = parseToken(accessToken)
+    if (!decoded) {
+      clearSession()
+      throw new Error('Token invalido o expirado')
+    }
+
+    setLoading(true)
+    try {
+      await loadUser()
+    } catch (error) {
+      clearSession()
+      throw error
+    } finally {
+      setLoading(false)
+    }
+  }, [clearSession, loadUser, parseToken])
 
   const logout = useCallback(() => {
-    localStorage.removeItem(TOKEN_KEY)
-    localStorage.removeItem(REFRESH_KEY)
-    setUser(null)
-  }, [])
+    clearSession()
+  }, [clearSession])
 
   const getToken = useCallback(() => localStorage.getItem(TOKEN_KEY), [])
   const getRefreshToken = useCallback(() => localStorage.getItem(REFRESH_KEY), [])

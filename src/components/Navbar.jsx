@@ -8,10 +8,18 @@ const navLinks = [
   { label: 'Validación Documental', to: '/app/validacion' },
 ]
 
+const adminLinks = [
+  { label: 'Dashboard', to: '/app/dashboard' },
+  { label: 'Usuarios', to: '/app/usuarios' },
+  { label: 'Planes', to: '/app/planes' },
+]
+
 export default function Navbar() {
   const { isAuthenticated, user, logout } = useAuth()
   const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false)
+  const isAdmin = user?.type === 'ADMIN'
+  const privateLinks = isAdmin ? adminLinks : navLinks
 
   const handleLogout = () => {
     logout()
@@ -30,7 +38,7 @@ export default function Navbar() {
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-6 text-sm text-white/70">
             {isAuthenticated ? (
-              navLinks.map((l) => (
+              privateLinks.map((l) => (
                 <NavLink
                   key={l.to}
                   to={l.to}
@@ -92,7 +100,7 @@ export default function Navbar() {
         {menuOpen && (
           <div className="md:hidden border-t border-white/5 py-4 space-y-3">
             {isAuthenticated ? (
-              navLinks.map((l) => (
+              privateLinks.map((l) => (
                 <Link
                   key={l.to}
                   to={l.to}

@@ -44,7 +44,7 @@ export default function Register() {
         empresa: form.empresa,
         password: form.password,
       })
-      login(data.accessToken, data.refreshToken)
+      await login(data.accessToken, data.refreshToken)
       navigate('/app/dashboard', { replace: true })
     } catch (err) {
       const msg = err.response?.data?.message || 'Error al crear cuenta. Intenta de nuevo.'

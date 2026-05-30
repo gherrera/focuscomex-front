@@ -14,6 +14,8 @@ import Dashboard from './pages/private/Dashboard'
 import Calculadora from './pages/private/Calculadora'
 import Tracking from './pages/private/Tracking'
 import ValidacionDocumental from './pages/private/ValidacionDocumental'
+import Usuarios from './pages/private/Usuarios'
+import Planes from './pages/private/Planes'
 
 function PublicLayout({ children }) {
   return (
@@ -65,6 +67,8 @@ export default function App() {
             <Route path="calculadora" element={<Calculadora />} />
             <Route path="tracking" element={<Tracking />} />
             <Route path="validacion" element={<ValidacionDocumental />} />
+            <Route path="usuarios" element={<Usuarios />} />
+            <Route path="planes" element={<Planes />} />
           </Route>
 
           {/* Fallback */}

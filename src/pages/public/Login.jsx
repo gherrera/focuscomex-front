@@ -9,7 +9,7 @@ export default function Login() {
   const location = useLocation()
   const from = location.state?.from?.pathname || '/app/dashboard'
 
-  const [form, setForm] = useState({ email: '', password: '' })
+  const [form, setForm] = useState({ username: '', password: '' })
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
@@ -20,14 +20,14 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (!form.email || !form.password) {
+    if (!form.username || !form.password) {
       setError('Completa todos los campos.')
       return
     }
     setLoading(true)
     try {
-      const { data } = await authService.login(form.email, form.password)
-      login(data.accessToken, data.refreshToken)
+      const { data } = await authService.login(form.username, form.password)
+      await login(data.token, data.refreshToken)
       navigate(from, { replace: true })
     } catch (err) {
       const msg = err.response?.data?.message || 'Credenciales incorrectas. Intenta de nuevo.'
@@ -65,17 +65,17 @@ export default function Login() {
 
           <form onSubmit={handleSubmit} className="space-y-4" noValidate>
             <div>
-              <label className="block text-sm text-white/50 mb-1.5" htmlFor="email">
+              <label className="block text-sm text-white/50 mb-1.5" htmlFor="username">
                 Correo electrónico
               </label>
               <input
-                id="email"
-                name="email"
+                id="username"
+                name="username"
                 type="email"
                 autoComplete="email"
-                value={form.email}
-                onChange={handleChange}
                 placeholder="tu@email.com"
+                value={form.username}
+                onChange={handleChange}
                 className="input-dark"
                 required
               />
