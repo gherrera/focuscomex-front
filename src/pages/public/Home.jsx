@@ -70,7 +70,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* ── HERO ── */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section className="relative overflow-hidden pt-16 bg-[#020202]">
 
         {/* ─── Background photo ───────────────────────────────────────────
             Para usar tu foto real: reemplaza public/hero.svg con public/hero.jpg
@@ -80,27 +80,19 @@ export default function Home() {
           className="absolute inset-0 bg-no-repeat bg-contain"
           style={{
             backgroundImage: "url('/hero.png')",
-            backgroundPosition: 'center right',
-            marginTop: 60,
+            backgroundPosition: 'center top',
+            top: 65,
           }}
         />
 
-        {/* Dark overlay from left (solid) → right (transparent) so text is readable
-            and the photo shines through on the right half */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#07070a] from-[30%] via-[#07070a]/30 via-[50%] to-transparent" />
-
-        {/* Subtle amber glow behind the globe area */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_72%_52%,rgba(201,168,76,0.07),transparent)]" />
-
         {/* ─── Content ─────────────────────────────────────────────────── */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 w-full">
-          <div className="max-w-[560px]">
-            <h1 className="text-5xl sm:text-6xl lg:text-[72px] font-bold text-white leading-[1.08] tracking-tight mb-5">
-              Tu operación<br />
-              internacional,<br />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-6 lg:pt-5 w-full min-h-[500px] lg:min-h-[980px]">
+          <div className="lg:max-w-[650px] sm:max-w-[450px]">
+            <h1 className="text-xl sm:text-2xl lg:text-4xl font-bold text-white leading-[1.08] tracking-tight mb-2">
+              Tu operación internacional,<br />
               <span className="text-gold">con foco total.</span>
             </h1>
-            <p className="text-white/55 text-[17px] leading-relaxed mb-10 max-w-md">
+            <p className="text-white/55 text-[17px] sm:text-sm lg:text-lg leading-relaxed mb-4">
               Plataforma inteligente que simplifica tus operaciones de comercio exterior
               con precisión, transparencia y acompañamiento experto.
             </p>
