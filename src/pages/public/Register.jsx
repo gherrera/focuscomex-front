@@ -39,15 +39,15 @@ export default function Register() {
     setLoading(true)
     try {
       const { data } = await authService.register({
-        nombre: form.nombre,
-        email: form.email,
-        empresa: form.empresa,
+        name: form.nombre,
+        username: form.email,
+        company: form.empresa,
         password: form.password,
       })
-      await login(data.accessToken, data.refreshToken)
+      await login(data.token, data.refreshToken)
       navigate('/app/dashboard', { replace: true })
     } catch (err) {
-      const msg = err.response?.data?.message || 'Error al crear cuenta. Intenta de nuevo.'
+      const msg = err.response?.data?.detail || 'Error al crear cuenta. Intenta de nuevo.'
       setError(msg)
     } finally {
       setLoading(false)

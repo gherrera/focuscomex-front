@@ -82,11 +82,14 @@ export function AuthProvider({ children }) {
 
   const getToken = useCallback(() => localStorage.getItem(TOKEN_KEY), [])
   const getRefreshToken = useCallback(() => localStorage.getItem(REFRESH_KEY), [])
+  const refreshUser = useCallback(async () => {
+    return loadUser()
+  }, [loadUser])
 
   const isAuthenticated = !!user
 
   return (
-    <AuthContext.Provider value={{ user, loading, isAuthenticated, login, logout, getToken, getRefreshToken }}>
+    <AuthContext.Provider value={{ user, loading, isAuthenticated, login, logout, getToken, getRefreshToken, refreshUser }}>
       {children}
     </AuthContext.Provider>
   )
