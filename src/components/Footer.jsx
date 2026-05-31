@@ -31,8 +31,8 @@ const footerSections = [
   {
     title: 'LEGAL',
     links: [
-      { label: 'Términos y Condiciones', to: '#' },
-      { label: 'Política de Privacidad', to: '#' },
+      { label: 'Términos y Condiciones', to: '/condiciones' },
+      { label: 'Política de Privacidad', to: '/privacidad' },
       { label: 'Seguridad', to: '#' },
     ],
   },

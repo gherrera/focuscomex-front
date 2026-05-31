@@ -8,6 +8,8 @@ import PrivateRoute from './components/PrivateRoute'
 import Home from './pages/public/Home'
 import Login from './pages/public/Login'
 import Register from './pages/public/Register'
+import Privacidad from './pages/public/Privacidad'
+import Condiciones from './pages/public/Condiciones'
 
 // Private pages
 import Dashboard from './pages/private/Dashboard'
@@ -53,6 +55,22 @@ export default function App() {
           />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route
+            path="/privacidad"
+            element={
+              <PublicLayout>
+                <Privacidad />
+              </PublicLayout>
+            }
+          />
+          <Route
+            path="/condiciones"
+            element={
+              <PublicLayout>
+                <Condiciones />
+              </PublicLayout>
+            }
+          />
 
           {/* Private routes */}
           <Route
