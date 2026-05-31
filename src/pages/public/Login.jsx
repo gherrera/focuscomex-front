@@ -79,12 +79,7 @@ export default function Login() {
         {/* Logo */}
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full border-2 border-gold flex items-center justify-center">
-              <span className="text-gold font-bold">FC</span>
-            </div>
-            <span className="text-white font-bold text-lg tracking-widest uppercase">
-              Focus<span className="text-gold">Comex</span>
-            </span>
+            <img src="/logo1.png" alt="Focus Comex" className="h-14 w-auto" />
           </Link>
           <p className="text-white/40 mt-2 text-sm">Accede a tu cuenta</p>
         </div>
@@ -175,9 +170,9 @@ export default function Login() {
               </div>
             </div>
             <div className="flex justify-end">
-              <a href="#" className="text-gold/70 hover:text-gold text-xs transition-colors">
+              <Link to="/olvide-clave" className="text-gold/70 hover:text-gold text-xs transition-colors">
                 ¿Olvidaste tu contraseña?
-              </a>
+              </Link>
             </div>
             <button
               type="submit"

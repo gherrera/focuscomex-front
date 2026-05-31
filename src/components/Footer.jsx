@@ -46,7 +46,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center mb-4">
-              <img src="/logo.png" alt="Focus Comex" className="h-14 w-auto" />
+              <img src="/logo1.png" alt="Focus Comex" className="h-14 w-auto" />
             </Link>
             <p className="text-white/40 text-xs leading-relaxed mb-4">
               Plataforma inteligente de comercio exterior que simplifica tus operaciones internacionales con tecnología, precisión y acompañamiento experto.

@@ -6,6 +6,7 @@ export default function Profile() {
   const { user, refreshUser } = useAuth()
   const [form, setForm] = useState({
     name: '',
+    company: '',
     password: '',
     confirmPassword: '',
   })
@@ -17,6 +18,7 @@ export default function Profile() {
     setForm((current) => ({
       ...current,
       name: user?.name || '',
+      company: user?.company || '',
     }))
   }, [user])
 
@@ -49,6 +51,7 @@ export default function Profile() {
     try {
       const payload = {
         name: form.name.trim(),
+        company: form.company.trim() || null,
       }
 
       if (form.password) {
@@ -117,6 +120,20 @@ export default function Profile() {
                 onChange={handleChange}
                 className="input-dark"
                 required
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm text-white/50 mb-1.5" htmlFor="company">
+                Empresa (opcional)
+              </label>
+              <input
+                id="company"
+                name="company"
+                value={form.company}
+                onChange={handleChange}
+                className="input-dark"
+                placeholder="Nombre de tu empresa"
               />
             </div>
 
